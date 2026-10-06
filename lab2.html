@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Text Animation</title>
+
+    <style>
+
+        body
+        {
+            background-color: lightyellow;
+            text-align: center;
+            font-family: Arial;
+            padding-top: 100px;
+        }
+
+        #animatedText
+        {
+            font-size: 10pt;
+            font-family: Georgia;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1 id="animatedText">TEXT-GROWING</h1>
+
+    <script>
+
+        var textElement = document.getElementById("animatedText");
+
+        var fontSize = 10;
+
+        var isGrowing = true;
+
+
+        
+        textElement.innerText = "TEXT-GROWING";
+        textElement.style.color = "green";
+
+
+        
+        var timerId = setInterval(changeSize, 80);
+
+
+        function changeSize()
+        {
+            if (isGrowing == true)
+            {
+                
+                fontSize = fontSize + 1;
+
+
+                
+                if (fontSize >= 60)
+                {
+                    isGrowing = false;
+
+                    textElement.innerText = "TEXT-SHRINKING";
+
+                    textElement.style.color = "orange";
+                }
+            }
+            else
+            {
+                
+                fontSize = fontSize - 1;
+
+
+                
+                if (fontSize <= 10)
+                {
+                    clearInterval(timerId);
+                }
+            }
+
+
+            
+            textElement.style.fontSize = fontSize + "pt";
+        }
+
+    </script>
+
+</body>
+</html>
