@@ -1,0 +1,53 @@
+/* External style sheet */
+
+body
+{
+    font-family: Arial, sans-serif;
+    background-color: lightyellow;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+#registrationBox
+{
+    width: 300px;
+    margin: 40px auto;
+    padding: 20px;
+
+    background-color: lightblue;
+
+    border: 1px solid red;
+    border-radius: 8px;
+
+    /* Added shadow */
+    box-shadow: 0 4px 10px gray;
+}
+
+
+/* Heading */
+
+#registrationBox h2
+{
+    text-align: center;
+    color: darkblue;
+}
+
+
+/* Input focus effect */
+
+input:focus
+{
+    border: 2px solid darkblue;
+    outline: none;
+}
+
+
+/* Button hover effect */
+
+button
+{
+    font-size: 14px;
+}
