@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registration Page</title>
+
+    <link rel="stylesheet" type="text/css" href="3style.css">
+
+    <style>
+
+        label
+        {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input
+        {
+            width: 95%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button
+        {
+            margin-top: 15px;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #registerButton
+        {
+            background-color: darkblue;
+            color: white;
+        }
+
+        #registerButton:hover
+        {
+            background-color: blue;
+        }
+
+        #clearButton
+        {
+            background-color: red;
+            color: white;
+        }
+
+        #clearButton:hover
+        {
+            background-color: darkred;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div id="registrationBox">
+
+        <h2>Registration Form</h2>
+
+        <form onsubmit="return validateForm()">
+
+            <label>First Name</label>
+            <input type="text"
+                   id="firstName"
+                   placeholder="Enter your first name">
+
+
+            <label>Last Name</label>
+            <input type="text"
+                   id="lastName"
+                   placeholder="Enter your last name">
+
+
+            <label>Password</label>
+            <input type="password"
+                   id="password"
+                   placeholder="Enter your password">
+
+
+            <label>Confirm Password</label>
+            <input type="password"
+                   id="confirmPassword"
+                   placeholder="Re-enter your password">
+
+
+            <label>E-mail id</label>
+            <input type="text"
+                   id="emailId"
+                   placeholder="Enter your email">
+
+
+            <label>Mobile Number</label>
+            <input type="text"
+                   id="mobileNumber"
+                   placeholder="Enter 10-digit mobile number">
+
+
+            <button type="submit" id="registerButton">
+                Register
+            </button>
+
+            <button type="button"
+                    id="clearButton"
+                    onclick="clearForm()">
+                Clear
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <script>
+
+        function validateForm()
+        {
+            var firstName =
+                document.getElementById("firstName").value;
+
+            var lastName =
+                document.getElementById("lastName").value;
+
+            var password =
+                document.getElementById("password").value;
+
+            var confirmPassword =
+                document.getElementById("confirmPassword").value;
+
+            var emailId =
+                document.getElementById("emailId").value;
+
+            var mobileNumber =
+                document.getElementById("mobileNumber").value;
+
+
+            // Patterns for validation
+            var namePattern = /^[a-zA-Z]{6,}$/;
+
+            var passwordPattern = /^.{6,}$/;
+
+            var emailPattern =
+                /^[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
+
+            var mobilePattern = /^[0-9]{10}$/;
+
+
+            // Validate first name
+            if (namePattern.test(firstName) == false)
+            {
+                alert("First name must contain only alphabets and at least 6 characters");
+                return false;
+            }
+
+
+            // Validate last name
+            if (namePattern.test(lastName) == false)
+            {
+                alert("Last name must contain only alphabets and at least 6 characters");
+                return false;
+            }
+
+
+            // Validate password
+            if (passwordPattern.test(password) == false)
+            {
+                alert("Password must be at least 6 characters");
+                return false;
+            }
+
+
+            // Check whether passwords match
+            if (password != confirmPassword)
+            {
+                alert("Passwords do not match");
+                return false;
+            }
+
+
+            // Validate email
+            if (emailPattern.test(emailId) == false)
+            {
+                alert("Enter a valid e-mail id like name@domain.com");
+                return false;
+            }
+
+
+            // Validate mobile number
+            if (mobilePattern.test(mobileNumber) == false)
+            {
+                alert("Mobile number must contain exactly 10 digits");
+                return false;
+            }
+
+
+            alert("Registration successful");
+
+            return true;
+        }
+
+
+        // Clear the complete form
+        function clearForm()
+        {
+            document.getElementById("firstName").value = "";
+
+            document.getElementById("lastName").value = "";
+
+            document.getElementById("password").value = "";
+
+            document.getElementById("confirmPassword").value = "";
+
+            document.getElementById("emailId").value = "";
+
+            document.getElementById("mobileNumber").value = "";
+        }
+
+    </script>
+
+</body>
+</html>
