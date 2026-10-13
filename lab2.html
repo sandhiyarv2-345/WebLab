@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +7,6 @@
     <title>Text Animation</title>
 
     <style>
-
         body
         {
             background-color: lightyellow;
@@ -20,7 +20,6 @@
             font-size: 10pt;
             font-family: Georgia;
         }
-
     </style>
 </head>
 
@@ -29,59 +28,45 @@
     <h1 id="animatedText">TEXT-GROWING</h1>
 
     <script>
-
         var textElement = document.getElementById("animatedText");
 
         var fontSize = 10;
-
         var isGrowing = true;
 
-
-        
         textElement.innerText = "TEXT-GROWING";
         textElement.style.color = "green";
 
-
-        
         var timerId = setInterval(changeSize, 80);
-
 
         function changeSize()
         {
             if (isGrowing == true)
             {
-                
                 fontSize = fontSize + 1;
 
-
-                
                 if (fontSize >= 60)
                 {
                     isGrowing = false;
 
                     textElement.innerText = "TEXT-SHRINKING";
-
                     textElement.style.color = "orange";
                 }
             }
             else
             {
-                
                 fontSize = fontSize - 1;
 
-
-                
                 if (fontSize <= 10)
                 {
-                    clearInterval(timerId);
+                    isGrowing = true;
+
+                    textElement.innerText = "TEXT-GROWING";
+                    textElement.style.color = "green";
                 }
             }
 
-
-            
             textElement.style.fontSize = fontSize + "pt";
         }
-
     </script>
 
 </body>
