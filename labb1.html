@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,11 +7,10 @@
     <title>Simple Calculator</title>
 
     <style>
-
         body
         {
             font-family: Arial;
-            background-color: lightyellow;
+            background-color: white;
         }
 
         #calculatorBox
@@ -18,13 +18,11 @@
             width: 260px;
             margin: 50px auto;
             padding: 20px;
-            background-color: lightblue;
-            border: 1px solid red;
+            background-color: white;
+            border: 1px solid lightblue;
             border-radius: 8px;
             text-align: center;
-
-            
-            box-shadow: 0 4px 10px gray;
+            box-shadow: 0 4px 10px lightgray;
         }
 
         input, select, button
@@ -35,36 +33,45 @@
             box-sizing: border-box;
         }
 
-        
+        input, select
+        {
+            border: 1px solid lightblue;
+            border-radius: 4px;
+            background-color: white;
+            color: #333333;
+        }
+
         button
         {
-            background-color: blue;
+            background-color: #2563eb;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
 
-        
         button:hover
         {
-            background-color: darkblue;
+            background-color: #1d4ed8;
         }
 
-       
         #clearButton
         {
-            background-color: red;
+            background-color: white;
+            color: #2563eb;
+            border: 1px solid #2563eb;
         }
 
         #clearButton:hover
         {
-            background-color: darkred;
+            background-color: #eff6ff;
         }
 
         #resultText
         {
-            color: darkblue;
+            color: #1d4ed8;
+            font-size: 16px;
+            overflow-wrap: anywhere;
         }
 
     </style>
@@ -100,12 +107,10 @@
 
     </div>
 
-
     <script>
 
         function calculate()
         {
-            
             var firstNumber =
                 parseFloat(document.getElementById("firstNumber").value);
 
@@ -117,80 +122,57 @@
 
             var result;
 
-
-           
             if (isNaN(firstNumber) || isNaN(secondNumber))
             {
                 document.getElementById("resultText").innerText =
                     "Please enter both numbers";
-
                 return;
             }
 
-
-            
             if (operator == "+")
             {
                 result = firstNumber + secondNumber;
             }
-
             else if (operator == "-")
             {
                 result = firstNumber - secondNumber;
             }
-
             else if (operator == "*")
             {
                 result = firstNumber * secondNumber;
             }
-
             else if (operator == "/")
             {
-                
                 if (secondNumber == 0)
                 {
                     document.getElementById("resultText").innerText =
                         "Cannot divide by zero";
-
                     return;
                 }
 
                 result = firstNumber / secondNumber;
             }
-
             else if (operator == "%")
             {
-                
                 result = (firstNumber * secondNumber) / 100;
             }
-
             else if (operator == "^")
             {
-                
                 result = Math.pow(firstNumber, secondNumber);
             }
 
-
-            
             result = Number(result.toFixed(2));
 
-
-            
             document.getElementById("resultText").innerText =
                 firstNumber + " " + operator + " " +
                 secondNumber + " = " + result;
         }
 
-
-        
         function clearCalculator()
         {
             document.getElementById("firstNumber").value = "";
-
             document.getElementById("secondNumber").value = "";
-
             document.getElementById("operator").value = "+";
-
             document.getElementById("resultText").innerText = "";
         }
 
