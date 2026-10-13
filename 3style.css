@@ -1,53 +1,38 @@
-/* External style sheet */
 
-body
-{
+
+body {
     font-family: Arial, sans-serif;
-    background-color: lightyellow;
+    background-color: white;
     margin: 0;
     padding: 0;
 }
 
-
-
-
-#registrationBox
-{
+#registrationBox {
     width: 300px;
     margin: 40px auto;
     padding: 20px;
-
     background-color: lightblue;
-
-    border: 1px solid red;
+    border: 1px solid darkblue;
     border-radius: 8px;
-
-    /* Added shadow */
-    box-shadow: 0 4px 10px gray;
+    box-shadow: 0 4px 10px lightgray;
 }
-
 
 /* Heading */
 
-#registrationBox h2
-{
+#registrationBox h2 {
     text-align: center;
     color: darkblue;
 }
 
-
 /* Input focus effect */
 
-input:focus
-{
+input:focus {
     border: 2px solid darkblue;
     outline: none;
 }
 
+/* Button styling */
 
-/* Button hover effect */
-
-button
-{
+button {
     font-size: 14px;
 }
